@@ -4,9 +4,10 @@ local keymap = vim.keymap
 
 keymap.set("n", "<leader>pv", vim.cmd.Ex) -- go to netrw
 keymap.set("n", "<leader>so", ":source<CR>") -- source
-keymap.set("n", "<leader>u", ":w<CR>") -- write
+keymap.set("n", "<leader>u", ":w<CR>") -- write, basically to update buffer
 keymap.set("n", "<leader>fq", ":q!<CR>") -- force quit no write
 keymap.set("n", "<leader>wq", ":wq<CR>") -- write quit
+keymap.set("n", "<leader>fb", "gg+=G") -- format tab and indenting
 
 -- split windows
 keymap.set("n", "<leader>sw", "<C-w>v") -- split window
