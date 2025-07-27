@@ -4,10 +4,12 @@ local keymap = vim.keymap
 
 keymap.set("n", "<leader>pv", vim.cmd.Ex) -- go to netrw
 keymap.set("n", "<leader>so", ":source<CR>") -- source
-keymap.set("n", "<leader>w", ":w<CR>") -- write
+keymap.set("n", "<leader>u", ":w<CR>") -- write
+keymap.set("n", "<leader>fq", ":q!<CR>") -- force quit no write
+keymap.set("n", "<leader>wq", ":wq<CR>") -- write quit
 
 -- split windows
-keymap.set("n", "<leader>sh", "<C-w>v") -- split horizontal
+keymap.set("n", "<leader>sw", "<C-w>v") -- split window
 keymap.set("n", "<leader>se", "<C-w>=") -- make splits equal size
 keymap.set("n", "<leader>sc", "<cmd>close<CR>") -- close split
 
