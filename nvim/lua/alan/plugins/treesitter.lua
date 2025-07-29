@@ -23,7 +23,6 @@ return {
                 "c",
                 "lua",
                 "vim",
-                "toml",
             },
 
             incremental_selection = {
