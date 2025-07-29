@@ -25,6 +25,9 @@ Built for coding in C, Rust and Zig.
 
 ## 🧪 Notes to Self
 
+- Install homebrew
+- Install bob via homebrew
+- bob install _
 - Config uses `v0.11.3`
 - Use `:Lazy` to sync/install plugins
 - Run `:checkhealth` if anything breaks
