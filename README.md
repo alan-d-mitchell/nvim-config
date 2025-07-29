@@ -23,13 +23,13 @@ Built for coding in C, Rust and Zig.
 
 ---
 
-## 🧪 Notes to Self
+## 🧪 Installation process
 
-- Install homebrew
-- Install bob via homebrew
-- bob install _
 - Config uses `v0.11.3`
-- Use `:Lazy` to sync/install plugins
-- Run `:checkhealth` if anything breaks
+- Install homebrew 
+    - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+- Install bob via homebrew
+    - brew install bob
+- bob install v0.11.3 
 
 ---
