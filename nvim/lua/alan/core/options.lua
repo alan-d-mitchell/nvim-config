@@ -20,7 +20,7 @@ opt.signcolumn = "yes"
 
 opt.backspace = "indent,eol,start"
 
-opt.clipboard:append("unnamedplus") -- system clipboard as default
+opt.clipboard = "unnamedplus" -- system clipboard as default
 
 opt.splitright = true
 opt.splitbelow = true
