@@ -1,22 +1,6 @@
--- Kanagawa Paper --
---return {
---    "thesimonho/kanagawa-paper.nvim",
---    lazy = false,
---    priority = 1000,
---    init = function()
---        vim.cmd.colorscheme("kanagawa-paper")
---    end,
---    opts = {...},
---}
-
--- Vesper --
 return {
-    "datsfilipe/vesper.nvim",
-    lazy = false,
-    priority = 1000,
-    init = function()
-        vim.cmd.colorscheme("vesper")
-    end,
-    opts = { ... },
+    "thesimonho/kanagawa-paper.nvim", -- Kanagawa Paper
+    "datsfilipe/vesper.nvim", -- Vesper
+    "rose-pine/nvim", -- Rose Pine
 }
 
