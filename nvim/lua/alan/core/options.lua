@@ -24,5 +24,3 @@ opt.clipboard:append("unnamedplus") -- system clipboard as default
 
 opt.splitright = true
 opt.splitbelow = true
-
-
