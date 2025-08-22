@@ -60,7 +60,6 @@ return {
                 local ok, _ = pcall(vim.cmd.colorscheme, scheme)
                 if ok then
                     save_theme(name) -- Save the theme when successfully set
-                    vim.notify("Switched to " .. name .. " colorscheme", vim.log.levels.INFO)
                     return true
                 else
                     vim.notify("Failed to load " .. name .. " colorscheme", vim.log.levels.ERROR)
