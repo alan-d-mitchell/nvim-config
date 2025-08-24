@@ -1,2 +1,2 @@
-require("alan.core")
-require("alan.lazy")
+require("dev.core")
+require("dev.lazy")
