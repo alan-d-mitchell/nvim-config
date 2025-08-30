@@ -1,14 +1,18 @@
 # Neovim Config
 
-Just my neovim config.
-Feel free to use it!
-
-## Installation process
-
-- Config uses `v0.11.3`
-- Install homebrew 
-- Install bob via homebrew
-    - brew install bob
-- bob install v0.11.3 
+Just my personal Neovim configuration. Feel free to use it!
 
 ---
+
+## ⚙️ Installation
+
+This configuration requires Neovim version `v0.11.3`. The recommended way to install and manage Neovim versions is with `bob`.
+
+### 1. Install Neovim with Bob
+
+**Install Bob**
+
+First, install the `bob` version manager using `cargo`:
+```bash
+cargo install bob-nvim
+```
