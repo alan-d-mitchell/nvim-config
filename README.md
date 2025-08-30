@@ -11,8 +11,10 @@ This configuration requires Neovim version `v0.11.3`. The recommended way to ins
 ### 1. Install Neovim with Bob
 
 **Install Bob**
-
-First, install the `bob` version manager using `cargo`:
 ```bash
 cargo install bob-nvim
+
+bob install nightly
+bob install v0.11.3
+bob use v0.11.3
 ```
