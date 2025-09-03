@@ -1,6 +1,4 @@
--- nvim/lua/alan/plugins/colorscheme-switcher.lua
 return {
-    -- Keep your existing colorscheme plugins as dependencies
     {
         "thesimonho/kanagawa-paper.nvim",
         lazy = true, -- Load only when needed
