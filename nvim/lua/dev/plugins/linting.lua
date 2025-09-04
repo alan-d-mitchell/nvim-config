@@ -11,6 +11,7 @@ return {
             rust = { "clippy" },
             lua = { "luacheck" },
             c = { "clangtidy" },
+            python = { "ruff" }
         }
 
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {

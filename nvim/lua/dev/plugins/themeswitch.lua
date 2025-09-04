@@ -2,7 +2,7 @@ return {
     {
         "thesimonho/kanagawa-paper.nvim",
         lazy = true, -- Load only when needed
-        opts = {},
+        opts = {}
     },
     {
         "rose-pine/neovim",
@@ -10,6 +10,9 @@ return {
         lazy = true,
         opts = {
             variant = "moon", -- Set moon as the variant
+            styles = {
+                italic = false, -- Disable italics
+            },
         },
     },
     {
@@ -58,7 +61,34 @@ return {
                 local ok, _ = pcall(vim.cmd.colorscheme, scheme)
                 if ok then
                     save_theme(name) -- Save the theme when successfully set
-
+                    
+                    -- Disable italics for vesper after setting it
+                    if name == "vesper" then
+                        -- Override italic highlighting groups
+                        vim.api.nvim_set_hl(0, "Comment", { italic = false })
+                        vim.api.nvim_set_hl(0, "Keyword", { italic = false })
+                        vim.api.nvim_set_hl(0, "Function", { italic = false })
+                        vim.api.nvim_set_hl(0, "String", { italic = false })
+                        vim.api.nvim_set_hl(0, "Type", { italic = false })
+                        vim.api.nvim_set_hl(0, "StorageClass", { italic = false })
+                        vim.api.nvim_set_hl(0, "Structure", { italic = false })
+                        vim.api.nvim_set_hl(0, "Constant", { italic = false })
+                        vim.api.nvim_set_hl(0, "Special", { italic = false })
+                        vim.api.nvim_set_hl(0, "Statement", { italic = false })
+                        vim.api.nvim_set_hl(0, "Conditional", { italic = false })
+                        vim.api.nvim_set_hl(0, "Repeat", { italic = false })
+                        vim.api.nvim_set_hl(0, "Label", { italic = false })
+                        vim.api.nvim_set_hl(0, "Exception", { italic = false })
+                        vim.api.nvim_set_hl(0, "PreProc", { italic = false })
+                        vim.api.nvim_set_hl(0, "Include", { italic = false })
+                        vim.api.nvim_set_hl(0, "Define", { italic = false })
+                        vim.api.nvim_set_hl(0, "Macro", { italic = false })
+                        vim.api.nvim_set_hl(0, "PreCondit", { italic = false })
+                        vim.api.nvim_set_hl(0, "Identifier", { italic = false })
+                        vim.api.nvim_set_hl(0, "Variable", { italic = false })
+                        -- Add more highlight groups as needed
+                    end
+                    
                     return true
                 else
                     vim.notify("Failed to load " .. name .. " colorscheme", vim.log.levels.ERROR)
