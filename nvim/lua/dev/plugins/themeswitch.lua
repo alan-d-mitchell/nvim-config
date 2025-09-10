@@ -2,7 +2,17 @@ return {
     {
         "thesimonho/kanagawa-paper.nvim",
         lazy = true, -- Load only when needed
-        opts = {}
+        config = function()
+            require('kanagawa-paper').setup({
+                transparent = true,
+
+                styles = {
+                    comments = {
+                        italics = false,
+                    },
+                },
+            })
+        end,
     },
     {
         "rose-pine/neovim",
@@ -11,11 +21,23 @@ return {
         config = function()
             require("rose-pine").setup({
                 variant = "moon", -- Set moon as the variant
+
                 styles = {
+                    transparency = true,
                     italic = false, -- Disable italics
                 },
             })
         end,
+    },
+    {
+        "vague2k/vague.nvim",
+        lazy = true,
+        config = function()
+            require("vague").setup({
+                transparent = true,
+                italic = false,
+            })
+        end
     },
     {
         "datsfilipe/vesper.nvim", 
@@ -25,11 +47,24 @@ return {
             -- Path to store the current theme
             local theme_file = vim.fn.stdpath("data") .. "/current_theme.txt"
 
+            require('vesper').setup({
+                transparent = true,
+
+                italics = {
+                    comments = false,
+                    keywords = false,
+                    functions = false,
+                    strings = false,
+                    variables = false,
+                },
+            })
+
             -- Available colorschemes
             local colorschemes = {
                 vesper = "vesper",
                 kanagawa = "kanagawa-paper",
-                rosepine = "rose-pine-moon"
+                rosepine = "rose-pine-moon",
+                vague = "vague"
             }
 
             -- Function to save current theme
@@ -64,33 +99,6 @@ return {
                 if ok then
                     save_theme(name) -- Save the theme when successfully set
 
-                    -- Disable italics for vesper after setting it
-                    if name == "vesper" then
-                        -- Override italic highlighting groups
-                        vim.api.nvim_set_hl(0, "Comment", { italic = false })
-                        vim.api.nvim_set_hl(0, "Keyword", { italic = false })
-                        vim.api.nvim_set_hl(0, "Function", { italic = false })
-                        vim.api.nvim_set_hl(0, "String", { italic = false })
-                        vim.api.nvim_set_hl(0, "Type", { italic = false })
-                        vim.api.nvim_set_hl(0, "StorageClass", { italic = false })
-                        vim.api.nvim_set_hl(0, "Structure", { italic = false })
-                        vim.api.nvim_set_hl(0, "Constant", { italic = false })
-                        vim.api.nvim_set_hl(0, "Special", { italic = false })
-                        vim.api.nvim_set_hl(0, "Statement", { italic = false })
-                        vim.api.nvim_set_hl(0, "Conditional", { italic = false })
-                        vim.api.nvim_set_hl(0, "Repeat", { italic = false })
-                        vim.api.nvim_set_hl(0, "Label", { italic = false })
-                        vim.api.nvim_set_hl(0, "Exception", { italic = false })
-                        vim.api.nvim_set_hl(0, "PreProc", { italic = false })
-                        vim.api.nvim_set_hl(0, "Include", { italic = false })
-                        vim.api.nvim_set_hl(0, "Define", { italic = false })
-                        vim.api.nvim_set_hl(0, "Macro", { italic = false })
-                        vim.api.nvim_set_hl(0, "PreCondit", { italic = false })
-                        vim.api.nvim_set_hl(0, "Identifier", { italic = false })
-                        vim.api.nvim_set_hl(0, "Variable", { italic = false })
-                        -- Add more highlight groups as needed
-                    end
-
                     return true
                 else
                     vim.notify("Failed to load " .. name .. " colorscheme", vim.log.levels.ERROR)
@@ -114,6 +122,10 @@ return {
             vim.api.nvim_create_user_command("ColorRosePine", function()
                 set_colorscheme("rosepine")
             end, { desc = "Switch to Rose Pine Moon colorscheme" })
+
+            vim.api.nvim_create_user_command("ColorVague", function()
+                set_colorscheme("vague")
+            end, { desc = "Switch to Vague colorscheme "})
 
             -- Generic command that takes colorscheme name as argument
             vim.api.nvim_create_user_command("SwitchTheme", function(opts)
@@ -145,6 +157,7 @@ return {
             keymap.set("n", "<leader>cv", function() set_colorscheme("vesper") end, { desc = "Switch to Vesper" })
             keymap.set("n", "<leader>ck", function() set_colorscheme("kanagawa") end, { desc = "Switch to Kanagawa" })
             keymap.set("n", "<leader>cr", function() set_colorscheme("rosepine") end, { desc = "Switch to Rose Pine Moon" })
+            keymap.set("n", "<leader>ca", function() set_colorscheme("vague") end, { desc = "Switch to Vague" })
 
             -- Cycle through colorschemes
             local scheme_list = {"vesper", "kanagawa", "rosepine"}
