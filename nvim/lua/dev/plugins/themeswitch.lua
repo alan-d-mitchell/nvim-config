@@ -84,7 +84,7 @@ return {
                     file:close()
                     return theme_name
                 end
-                return "rosepine" -- default fallback
+                return "vague" -- default fallback
             end
 
             -- Function to safely set colorscheme
