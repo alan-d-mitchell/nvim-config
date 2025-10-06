@@ -40,6 +40,22 @@ return {
         end
     },
     {
+        "ellisonleao/gruvbox.nvim",
+        lazy = true,
+        config = function()
+            require("gruvbox").setup({
+                transparent_mode = true,
+                italic = {
+                    strings = false,
+                    emphasis = false,
+                    comments = false,
+                    operators = false,
+                    folds = false,
+                }
+            })
+        end
+    },
+    {
         "datsfilipe/vesper.nvim", 
         lazy = false, -- Keep as default
         priority = 1000,
@@ -64,7 +80,8 @@ return {
                 vesper = "vesper",
                 kanagawa = "kanagawa-paper",
                 rosepine = "rose-pine-moon",
-                vague = "vague"
+                vague = "vague",
+                gruvbox = "gruvbox"
             }
 
             -- Function to save current theme
@@ -126,6 +143,10 @@ return {
             vim.api.nvim_create_user_command("ColorVague", function()
                 set_colorscheme("vague")
             end, { desc = "Switch to Vague colorscheme "})
+            
+            vim.api.nvim_create_user_command("ColorGruv", function()
+                set_colorscheme("gruvbox")
+            end, { desc = "Switch to gruvbox colorscheme "})
 
             -- Generic command that takes colorscheme name as argument
             vim.api.nvim_create_user_command("SwitchTheme", function(opts)
@@ -158,6 +179,7 @@ return {
             keymap.set("n", "<leader>ck", function() set_colorscheme("kanagawa") end, { desc = "Switch to Kanagawa" })
             keymap.set("n", "<leader>cr", function() set_colorscheme("rosepine") end, { desc = "Switch to Rose Pine Moon" })
             keymap.set("n", "<leader>ca", function() set_colorscheme("vague") end, { desc = "Switch to Vague" })
+            keymap.set("n", "<leader>cg", function() set_colorscheme("gruvbox") end, { desc = "Switch to Gruvbox" })
 
             -- Cycle through colorschemes
             local scheme_list = {"vesper", "kanagawa", "rosepine"}
