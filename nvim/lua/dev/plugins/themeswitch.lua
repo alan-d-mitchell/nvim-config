@@ -1,17 +1,18 @@
 return {
     {
-        "thesimonho/kanagawa-paper.nvim",
+        "rebelot/kanagawa.nvim",
         lazy = true, -- Load only when needed
         config = function()
-            require('kanagawa-paper').setup({
+            require('kanagawa').setup({
                 transparent = true,
-
-                styles = {
-                    comments = {
-                        italics = false,
-                    },
+                
+                commentStyle = {
+                    italic = false;
                 },
-            })
+                keywordStyle = {
+                    italic = false;
+                },
+           })
         end,
     },
     {
@@ -20,11 +21,13 @@ return {
         lazy = true,
         config = function()
             require("rose-pine").setup({
-                variant = "moon", -- Set moon as the variant
+                variant = "main",
+                dark_variant = "main",
 
                 styles = {
+                    bold = true,
+                    italic = false,
                     transparency = true,
-                    italic = false, -- Disable italics
                 },
             })
         end,
@@ -78,8 +81,8 @@ return {
             -- Available colorschemes
             local colorschemes = {
                 vesper = "vesper",
-                kanagawa = "kanagawa-paper",
-                rosepine = "rose-pine-moon",
+                kanagawa = "kanagawa",
+                rosepine = "rose-pine",
                 vague = "vague",
                 gruvbox = "gruvbox"
             }
@@ -134,7 +137,7 @@ return {
 
             vim.api.nvim_create_user_command("ColorKanagawa", function()
                 set_colorscheme("kanagawa")
-            end, { desc = "Switch to Kanagawa Paper colorscheme" })
+            end, { desc = "Switch to Kanagawa colorscheme" })
 
             vim.api.nvim_create_user_command("ColorRosePine", function()
                 set_colorscheme("rosepine")
@@ -182,7 +185,7 @@ return {
             keymap.set("n", "<leader>cg", function() set_colorscheme("gruvbox") end, { desc = "Switch to Gruvbox" })
 
             -- Cycle through colorschemes
-            local scheme_list = {"vesper", "kanagawa", "rosepine"}
+            local scheme_list = {"vesper", "kanagawa", "rosepine", "vague", "gruvbox"}
 
             -- Set current_index based on saved theme
             local current_index = 1
