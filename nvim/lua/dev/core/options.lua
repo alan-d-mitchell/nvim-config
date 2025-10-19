@@ -10,7 +10,7 @@ opt.shiftwidth = 4
 opt.expandtab = true -- expand tabs to spaces
 opt.autoindent = true
 
-opt.wrap = false -- line wrap
+opt.wrap = true -- line wrap
 
 opt.cursorline = true
 
