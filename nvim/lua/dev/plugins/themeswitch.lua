@@ -4,7 +4,7 @@ return {
         lazy = true, -- Load only when needed
         config = function()
             require('kanagawa').setup({
-                transparent = true,
+                transparent = false,
                 
                 commentStyle = {
                     italic = false;
@@ -37,7 +37,7 @@ return {
         lazy = true,
         config = function()
             require("vague").setup({
-                transparent = true,
+                transparent = false,
                 italic = false,
             })
         end
@@ -55,6 +55,31 @@ return {
                     operators = false,
                     folds = false,
                 }
+            })
+        end
+    },
+    {
+        "projekt0n/github-nvim-theme",
+        lazy = true,
+        config = function()
+            require("github-theme").setup({
+                options = {
+                    hide_end_of_buffer = true,
+                    transparent = false,
+
+                    styles = {
+                        comments = 'NONE',
+                        functions = 'NONE',
+                        keywords = 'NONE',
+                        variables = 'NONE',
+                        conditionals = 'NONE',
+                        constants = 'NONE',
+                        numbers = 'NONE',
+                        operators = 'NONE',
+                        strings = 'NONE',
+                        types = 'NONE',
+                    },
+                },
             })
         end
     },
@@ -81,10 +106,11 @@ return {
             -- Available colorschemes
             local colorschemes = {
                 vesper = "vesper",
-                kanagawa = "kanagawa",
+                kanagawa = "kanagawa-dragon",
                 rosepine = "rose-pine",
                 vague = "vague",
-                gruvbox = "gruvbox"
+                gruvbox = "gruvbox",
+                github = "github_dark_default"
             }
 
             -- Function to save current theme
@@ -150,6 +176,9 @@ return {
             vim.api.nvim_create_user_command("ColorGruv", function()
                 set_colorscheme("gruvbox")
             end, { desc = "Switch to gruvbox colorscheme "})
+            vim.api.nvim_create_user_command("ColorGit", function()
+                set_colorscheme("github")
+            end, { desc = "Switch to github colorscheme "})
 
             -- Generic command that takes colorscheme name as argument
             vim.api.nvim_create_user_command("SwitchTheme", function(opts)
@@ -183,9 +212,10 @@ return {
             keymap.set("n", "<leader>cr", function() set_colorscheme("rosepine") end, { desc = "Switch to Rose Pine Moon" })
             keymap.set("n", "<leader>ca", function() set_colorscheme("vague") end, { desc = "Switch to Vague" })
             keymap.set("n", "<leader>cg", function() set_colorscheme("gruvbox") end, { desc = "Switch to Gruvbox" })
+            keymap.set("n", "<leader>ch", function() set_colorscheme("github") end, { desc = "Switch to Github" })
 
             -- Cycle through colorschemes
-            local scheme_list = {"vesper", "kanagawa", "rosepine", "vague", "gruvbox"}
+            local scheme_list = {"vesper", "kanagawa", "rosepine", "vague", "gruvbox", "github"}
 
             -- Set current_index based on saved theme
             local current_index = 1
